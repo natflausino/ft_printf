@@ -6,39 +6,38 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 20:21:05 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/05 23:28:09 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/08 02:13:39 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-# include <stdarg.h>
-# include <stdio.h>
 
-void		print_da_dani(const char *str, t_flags *flags, va_list args)
+//void		print_da_dani(const char *str, t_flags *flags, va_list args)
+void		print_da_dani(t_flags *flags, va_list args)
 {
-	if (flags->type == 'c')
-        print_c(str, &flags, args);
-    else if (flags->type == 'd' || flags->type == 'i')
-        print_di(str, &flags, args);
-    else if (flags->type == 's')
-        print_s(str, &flags, args);
-    else if (flags->type == 'p')
-        print_p(str, &flags, args);
-    else if (flags->type == 'u')
-        print_u(str, &flags, args);
-    else if (flags->type == 'x')
-        print_x(str, &flags, args);
-    else if (flags->type == 'X')
-        print_xx(str, &flags, args);
-    else if (flags->type == '%')
-        print_percent(str, &flags, args);
-    else if (flags->type == 'n')
-        print_n(str, &flags, args);
+	if (flags->type == '%')
+		print_percent(flags);
+	else if (flags->type == 'c')
+		print_c(flags, (va_arg(args, int)));
+	/*else if (flags->type == 'd' || flags->type == 'i')
+		print_di(str, flags, args);
+	else if (flags->type == 's')
+		print_s(str, flags, args);
+	else if (flags->type == 'p')
+		print_p(str, flags, args);
+	else if (flags->type == 'u')
+		print_u(str, flags, args);
+	else if (flags->type == 'x')
+		print_x(str, flags, args);
+	else if (flags->type == 'X')
+		print_xx(str, flags, args);
+	else if (flags->type == 'n')
+		print_n(str, flags, args); */
 }
 
 void		get_specs(const char *str, t_flags *flags, va_list args)
 {
-	if(str[flags->count] == 'c')
+	if (str[flags->count] == 'c')
 		flags->type = 'c';
 	else if (str[flags->count] == 'd')
 		flags->type = 'd';
@@ -58,15 +57,16 @@ void		get_specs(const char *str, t_flags *flags, va_list args)
 		flags->type = '%';
 	else if (str[flags->count] == 'n')
 		flags->type = 'n';
-	print_da_dani(str, &flags, args);
+	print_da_dani(flags, args);
+	//print_da_dani(str, flags, args);
 }
 
-void	get_flags_b(const char *str, t_flags *flags, va_list args)
+void	get_flags_a(const char *str, t_flags *flags, va_list args)
 {
 	if (str[flags->count] == '.')
 	{
 		flags->count++;
-		if(str[flags->count] == '*')
+		if (str[flags->count] == '*')
 			get_is_star(str, flags, args);
 		else if (is_number(str, flags) == 1)
 		{
@@ -80,16 +80,15 @@ void	get_flags_b(const char *str, t_flags *flags, va_list args)
 			flags->zero = 0;
 			flags->padding = ' ';
 		}
-		flags->count++;
 	}
-	get_specs(str, &flags, args);
+	get_specs(str, flags, args);
 }
 
-void	get_flags_a(const char *str, t_flags *flags, va_list args)
+void	get_flags(const char *str, t_flags *flags, va_list args)
 {
 	while (str[flags->count] == '0' || str[flags->count] == '-')
 	{
-		if(str[flags->count] == '0' && flags->minus == 0)
+		if (str[flags->count] == '0' && flags->minus == 0)
 		{
 			flags->zero = 1;
 			flags->minus = 0;
@@ -103,9 +102,9 @@ void	get_flags_a(const char *str, t_flags *flags, va_list args)
 		}
 		flags->count++;
 	}
-	if(str[i] == '*')
-		get_is_star(str, &flags, args);
-	else if (read_number(str, &flag) == 1)
+	if (str[flags->count] == '*')
+		get_is_star(str, flags, args);
+	else if (is_number(str, flags) == 1)
 		flags->width = flags->number;
-	get_flags_b(str, &flags, args);
+	get_flags_a(str, flags, args);
 }
