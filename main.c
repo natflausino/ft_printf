@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 20:10:58 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/08 02:17:20 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/08 02:27:56 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main(void)
 	printf("hello1\n");
 	ft_printf("hello2\n");
 
-	printf("|%-5c|", a);
+	printf("|%-*c|", 3, a);
 	printf("\n");
-	ft_printf("|%c|", a);
+	ft_printf("|%-.*c|", 3, a);
 }
