@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 23:43:28 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/08 02:20:46 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/08 02:21:26 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		print_percent(t_flags *flags)
 	ft_putchar(flags, '%');
 }
 
-void		print_c(t_flags *flags, int c)
+void		print_choi(t_flags *flags, int c)
 {
 	flags->count++; // CHOI MANDOU A GENTE CONTAR SEMPRE ESSA MERDA
 	if (flags->width <= 0)

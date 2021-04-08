@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 20:21:05 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/08 02:13:39 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/08 02:22:14 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		print_da_dani(t_flags *flags, va_list args)
 	if (flags->type == '%')
 		print_percent(flags);
 	else if (flags->type == 'c')
-		print_c(flags, (va_arg(args, int)));
+		print_choi(flags, (va_arg(args, int)));
 	/*else if (flags->type == 'd' || flags->type == 'i')
 		print_di(str, flags, args);
 	else if (flags->type == 's')

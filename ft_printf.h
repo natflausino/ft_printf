@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 16:06:31 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/08 01:40:17 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/08 02:22:19 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		get_is_star(const char *str, t_flags *flags, va_list args);
 int			is_number(const char *str, t_flags *flags);
 
 void		print_percent(t_flags *flags);
-void		print_c(t_flags *flags, int c);
+void		print_choi(t_flags *flags, int c);
 void		print_padd(t_flags *flags);
 
 /*
