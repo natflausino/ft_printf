@@ -6,23 +6,22 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 20:21:05 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/08 02:22:14 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/09 20:48:12 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//void		print_da_dani(const char *str, t_flags *flags, va_list args)
 void		print_da_dani(t_flags *flags, va_list args)
 {
 	if (flags->type == '%')
 		print_percent(flags);
 	else if (flags->type == 'c')
 		print_choi(flags, (va_arg(args, int)));
+	else if (flags->type == 's')
+		print_s(flags, (va_arg(args, char *)));
 	/*else if (flags->type == 'd' || flags->type == 'i')
 		print_di(str, flags, args);
-	else if (flags->type == 's')
-		print_s(str, flags, args);
 	else if (flags->type == 'p')
 		print_p(str, flags, args);
 	else if (flags->type == 'u')
@@ -30,9 +29,7 @@ void		print_da_dani(t_flags *flags, va_list args)
 	else if (flags->type == 'x')
 		print_x(str, flags, args);
 	else if (flags->type == 'X')
-		print_xx(str, flags, args);
-	else if (flags->type == 'n')
-		print_n(str, flags, args); */
+		print_xx(str, flags, args); */
 }
 
 void		get_specs(const char *str, t_flags *flags, va_list args)
@@ -55,19 +52,17 @@ void		get_specs(const char *str, t_flags *flags, va_list args)
 		flags->type = 'X';
 	else if (str[flags->count] == '%')
 		flags->type = '%';
-	else if (str[flags->count] == 'n')
-		flags->type = 'n';
 	print_da_dani(flags, args);
-	//print_da_dani(str, flags, args);
 }
 
 void	get_flags_a(const char *str, t_flags *flags, va_list args)
 {
 	if (str[flags->count] == '.')
 	{
+		flags->dot = 1;
 		flags->count++;
 		if (str[flags->count] == '*')
-			get_is_star(str, flags, args);
+			paula_is_star(flags, args, &flags->precision);
 		else if (is_number(str, flags) == 1)
 		{
 			flags->precision = flags->number;
@@ -103,7 +98,7 @@ void	get_flags(const char *str, t_flags *flags, va_list args)
 		flags->count++;
 	}
 	if (str[flags->count] == '*')
-		get_is_star(str, flags, args);
+		paula_is_star(flags, args, &flags->width);
 	else if (is_number(str, flags) == 1)
 		flags->width = flags->number;
 	get_flags_a(str, flags, args);

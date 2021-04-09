@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 00:51:34 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/07 22:15:47 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/09 20:22:31 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,19 @@ int			ft_tolower(int c)
 	if (c >= 'A' || c <= 'Z')
 		c = c + 32;
 	return (c);
+}
+
+void		ft_putstr(t_flags *flags, char *s, size_t size)
+{
+	size_t i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (i < size)
+	{
+		ft_putchar(flags, s[i]);
+		i++;
+	}
+	return ;
 }
