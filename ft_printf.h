@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 16:06:31 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/09 20:47:57 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/09 20:54:19 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_flags
 	int		width;
 	int		precision;
 	int		number;
-	int		precision_val;
 	int		count;
 	int		len;
 	char	dot;
