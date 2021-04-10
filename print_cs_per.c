@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 23:43:28 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/09 20:34:41 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/09 21:09:28 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,4 @@ void		print_s(t_flags *flags, char *s)
 	flags->width = 0;
 	flags->precision = -1;
 	flags->minus = 0;
-}
-
-void		print_padd(t_flags *flags, int len)
-{
-	int	i;
-
-	i = 0;
-	while (i < len)
-	{
-		ft_putchar(flags, flags->padding);
-		i++;
-	}
 }

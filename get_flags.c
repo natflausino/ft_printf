@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 20:21:05 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/09 20:48:12 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/10 00:00:10 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void		print_da_dani(t_flags *flags, va_list args)
 		print_choi(flags, (va_arg(args, int)));
 	else if (flags->type == 's')
 		print_s(flags, (va_arg(args, char *)));
-	/*else if (flags->type == 'd' || flags->type == 'i')
-		print_di(str, flags, args);
+	else if (flags->type == 'd' || flags->type == 'i')
+		print_doido_da_nat(flags, (va_arg(args, int)));
+	/*else if (flags->type == 'u')
+		print_u(str, flags, args);
 	else if (flags->type == 'p')
 		print_p(str, flags, args);
-	else if (flags->type == 'u')
-		print_u(str, flags, args);
 	else if (flags->type == 'x')
 		print_x(str, flags, args);
 	else if (flags->type == 'X')

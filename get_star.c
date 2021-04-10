@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 03:37:00 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/09 20:47:19 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/09 21:09:33 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,16 @@ void	paula_is_star(t_flags *flags, va_list args, int *star)
 		flags->padding = ' ';
 	}
 	flags->count++;
+}
+
+void		print_padd(t_flags *flags, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		ft_putchar(flags, flags->padding);
+		i++;
+	}
 }
