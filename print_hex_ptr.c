@@ -1,67 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_udi.c                                        :+:      :+:    :+:   */
+/*   print_hex_ptr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/09 21:10:04 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/09 23:55:28 by nbarreir         ###   ########.fr       */
+/*   Created: 2021/04/10 23:51:20 by csantos-          #+#    #+#             */
+/*   Updated: 2021/04/11 02:37:58 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		print_doido_da_nat(t_flags *flags, int num)
+/*
+** Prints hexadecimals x and X
+*/
+void			print_hex(t_flags *flags, long int num)
 {
-	int size;
-	char *number;
+	int				size;
+	char			*number;
 
-	flags->count++; // CHOI MANDOU A GENTE CONTAR SEMPRE ESSA MERDA
-	if(num < 0)
+	flags->count++; // CHOI COMMANDS US TO ALWAYS COUNT THIS SHIT
+	if (num < 0)
 	{
-		flags->negative = 1;
 		num = num * (-1);
+		num = UINT_MAX - num + 1;
 	}
-	number = ft_itoa(num);
+	number = hextoa(flags, num);
 	size = (int)ft_strlen(number);
-	if(flags->negative == 1)
+	print_nat_uhex(flags, number, size);
+}
+
+static void		precision_nat_uhex(t_flags *flags, int size)
+{
+	if (flags->dot == 1 && flags->precision > size)
 	{
-		size = size + 1;
-		flags->precision = flags->precision + 1;
+		flags->padding = '0';
+		print_padding(flags, flags->precision - size);
 	}
-	if(flags->negative == 1 && flags->zero == 1)
-		ft_putchar(flags, '-');
+}
+
+void			print_nat_uhex(t_flags *flags, char *number, int size)
+{
 	if (flags->width <= 0)
 		flags->width = size;
 	else if (flags->width > size && flags->minus == 0)
 	{
-		if(flags->precision > size)
+		if (flags->precision > size)
 			flags->width = flags->width - flags->precision;
 		else
 			flags->width = flags->width - size;
-		print_padd(flags, flags->width);
+		print_padding(flags, flags->width);
 	}
-	if (flags->negative == 1 && flags->zero == 0)
-	{
-		ft_putchar(flags, '-');
-		if(flags->dot == 1 && flags->precision > size)
-		{
-			flags->padding = '0';
-			print_padd(flags, flags->precision - size);
-		}
-	}
+	precision_nat_uhex(flags, size);
 	ft_putstr(flags, number, size);
 	if (flags->width > size && flags->minus == 1)
 	{
 		flags->padding = ' ';
-		if(flags->precision > size)
+		if (flags->precision > size)
 			flags->width = flags->width - flags->precision;
 		else
 			flags->width = flags->width - size;
-		print_padd(flags, flags->width);
+		print_padding(flags, flags->width);
 	}
-	flags->width = 0;
-	flags->precision = -1;
-	flags->minus = 0;
+	reset_da_cla(flags);
 }

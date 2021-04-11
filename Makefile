@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/03/22 15:58:23 by nbarreir          #+#    #+#              #
-#    Updated: 2021/04/09 21:26:03 by nbarreir         ###   ########.fr        #
+#    Created: 2021/03/09 18:49:16 by csantos-          #+#    #+#              #
+#    Updated: 2021/04/11 01:57:16 by nbarreir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,3 +32,5 @@ fclean: clean
 		rm -f $(NAME)
 
 re: fclean all
+
+.PHONY:		all clean fclean re

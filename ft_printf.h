@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 16:06:31 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/10 00:00:41 by nbarreir         ###   ########.fr       */
+/*   Created: 2021/03/12 00:27:07 by csantos-          #+#    #+#             */
+/*   Updated: 2021/04/11 02:37:24 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@
 # include <unistd.h>
 # include <string.h>
 # include <stddef.h>
+# include <limits.h>
 
 /*
 **  Struct Part
 */
-typedef struct s_flags
+typedef struct	s_flags
 {
 	char	type;
 	char	zero;
@@ -42,30 +43,34 @@ typedef struct s_flags
 ** Prinft functions
 */
 
-int			ft_printf(const char *input, ...);
-void		reset_type(t_flags *flags);
-void		get_flags(const char *str, t_flags *flags, va_list args);
-void		get_flags_a(const char *str, t_flags *flags, va_list args);
-void		paula_is_star(t_flags *flags, va_list args, int *star);
-int			is_number(const char *str, t_flags *flags);
+int				ft_printf(const char *input, ...);
+void			reset_type(t_flags *flags);
+void			get_flags(const char *str, t_flags *flags, va_list args);
+void			get_flags_a(const char *str, t_flags *flags, va_list args);
+void			paula_is_star(t_flags *flags, va_list args, int *star);
+int				is_number(const char *str, t_flags *flags);
+void			reset_da_cla(t_flags *flags);
 
-void		print_percent(t_flags *flags);
-void		print_choi(t_flags *flags, int c);
-void		print_padd(t_flags *flags, int len);
-void		print_s(t_flags *flags, char *s);
-void		print_doido_da_nat(t_flags *flags, int num);
+void			print_percent(t_flags *flags);
+void			print_choi(t_flags *flags, int c);
+void			print_padding(t_flags *flags, int len);
+void			print_s(t_flags *flags, char *s);
+void			print_doido_da_nat(t_flags *flags, char *number, int size);
+void			print_d_i(t_flags *flags, int num);
+void			print_du_luigi(t_flags *flags, long int num);
+void			print_hex(t_flags *flags, long int num);
+void			print_nat_uhex(t_flags *flags, char *number, int size);
 
 /*
 **  Utils functions
 */
 
-void		ft_putchar(t_flags *flags, char c);
-char		*ft_strdup(const char *s1);
-int			ft_isdigit(int c);
-int			ft_toupper(int c);
-int			ft_tolower(int c);
-void		ft_putstr(t_flags *flags, char *s, size_t size);
-size_t		ft_strlen(const char *s);
-char		*ft_itoa(int n);
+void			ft_putchar(t_flags *flags, char c);
+char			*ft_strdup(const char *s1);
+int				ft_isdigit(int c);
+void			ft_putstr(t_flags *flags, char *s, size_t size);
+size_t			ft_strlen(const char *s);
+char			*ft_itoa(long int n);
+char			*hextoa(t_flags *flags, long int nb);
 
 #endif

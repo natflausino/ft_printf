@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 18:12:03 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/09 22:55:49 by nbarreir         ###   ########.fr       */
+/*   Created: 2021/04/11 01:56:45 by nbarreir          #+#    #+#             */
+/*   Updated: 2021/04/11 01:56:48 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		reset_type(t_flags *flags)
+void			reset_type(t_flags *flags)
 {
 	flags->type = 0;
 	flags->zero = 0;

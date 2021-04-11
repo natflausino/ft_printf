@@ -5,45 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 00:51:34 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/09 23:57:57 by nbarreir         ###   ########.fr       */
+/*   Created: 2021/04/07 21:11:12 by csantos-          #+#    #+#             */
+/*   Updated: 2021/04/11 01:57:34 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
-int			ft_toupper(int c)
+static void	convert_putnbr(long int c, char *str, long int i)
 {
-	if (c >= 'a' || c <= 'z')
-		c = c - 32;
-	return (c);
-}
-
-int			ft_tolower(int c)
-{
-	if (c >= 'A' || c <= 'Z')
-		c = c + 32;
-	return (c);
-}
-
-void		ft_putstr(t_flags *flags, char *s, size_t size)
-{
-	size_t i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (i < size)
-	{
-		ft_putchar(flags, s[i]);
-		i++;
-	}
-	return ;
-}
-
-static void	conver_putnbr(int c, char *str, long int i)
-{
-	unsigned int m;
+	long unsigned m;
 
 	m = c;
 	if (c < 0)
@@ -52,18 +23,17 @@ static void	conver_putnbr(int c, char *str, long int i)
 		m = (m * (-1));
 	}
 	if (m >= 10)
-		conver_putnbr((m / 10), str, (i - 1));
+		convert_putnbr((m / 10), str, (i - 1));
 	str[i] = (m % 10) + '0';
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long int n)
 {
 	char		*str;
 	long int	j;
 	long int	count;
 
 	j = n;
-
 	count = 0;
 	if (j <= 0)
 		count++;
@@ -76,6 +46,37 @@ char		*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	str[count] = 0;
-	conver_putnbr(n, str, (count - 1));
+	convert_putnbr(n, str, (count - 1));
+	return (str);
+}
+
+/*
+** Converts input into hexadecimal x and X
+*/
+char		*hextoa(t_flags *flags, long int nb)
+{
+	int			count;
+	char		*str;
+	long int	temp;
+
+	temp = nb;
+	count = 0;
+	while ((temp = temp / 16) > 0)
+		count++;
+	if (!(str = (char *)malloc(sizeof(char) * (count + 1))))
+		return (NULL);
+	str[count] = '\0';
+	while (count >= 0)
+	{
+		temp = nb % 16;
+		if (flags->type == 'x' && temp >= 10)
+			str[count] = temp + 87;
+		else if (flags->type == 'X' && temp >= 10)
+			str[count] = temp + 55;
+		else
+			str[count] = temp + 48;
+		nb = nb / 16;
+		count--;
+	}
 	return (str);
 }
