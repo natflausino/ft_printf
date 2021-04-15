@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 21:27:42 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/11 01:57:01 by nbarreir         ###   ########.fr       */
+/*   Created: 2021/04/15 01:32:44 by nbarreir          #+#    #+#             */
+/*   Updated: 2021/04/15 01:32:47 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void		print_da_dani(t_flags *flags, va_list args)
 	else if (flags->type == 'd' || flags->type == 'i')
 		print_d_i(flags, (va_arg(args, int)));
 	else if (flags->type == 'u')
-		print_du_luigi(flags, (va_arg(args, long int)));
+		print_du_luigi(flags, (va_arg(args, unsigned)));
 	else if (flags->type == 'x' || flags->type == 'X')
-		print_hex(flags, (va_arg(args, long int)));
-	/*else if (flags->type == 'p')
-		print_p(flags, args);*/
+		print_hex(flags, (va_arg(args, unsigned int)));
+	else if (flags->type == 'p')
+		print_p(flags, (va_arg(args, unsigned long)));
 }
 
 void		get_specs(const char *str, t_flags *flags, va_list args)

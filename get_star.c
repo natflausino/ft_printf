@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/01 21:11:25 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/11 01:57:05 by nbarreir         ###   ########.fr       */
+/*   Created: 2021/04/15 01:33:59 by nbarreir          #+#    #+#             */
+/*   Updated: 2021/04/15 02:09:43 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,14 @@ void	paula_is_star(t_flags *flags, va_list args, int *star)
 	*star = va_arg(args, int);
 	if (*star < 0)
 	{
-		*star = *star * (-1);
-		flags->zero = 0;
-		flags->padding = ' ';
+		if (flags->dot == 0)
+		{
+			flags->asterisk = 1;
+			flags->minus = 1;
+			*star = *star * (-1);
+		}
+		else
+			flags->dot = 0;
 	}
 	flags->count++;
 }
@@ -51,7 +56,10 @@ void	print_padding(t_flags *flags, int len)
 
 void	reset_da_cla(t_flags *flags)
 {
+	flags->negative = 0;
 	flags->width = 0;
 	flags->precision = -1;
 	flags->minus = 0;
+	flags->dot = 0;
+	flags->asterisk = 0;
 }

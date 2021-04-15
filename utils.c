@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 21:47:05 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/11 01:57:38 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 02:08:14 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void		ft_putstr(t_flags *flags, char *s, size_t size)
 		ft_putchar(flags, s[i]);
 		i++;
 	}
+	//printf("Aqui\n");
 	return ;
 }
 

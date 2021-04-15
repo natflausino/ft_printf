@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:45 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/11 01:56:48 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 01:29:25 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			reset_type(t_flags *flags)
 	flags->type = 0;
 	flags->zero = 0;
 	flags->minus = 0;
-	flags->padding = 0;
+	flags->padding = ' ';
 	flags->width = 0;
 	flags->precision = -1;
 	flags->number = 0;
@@ -25,6 +25,7 @@ void			reset_type(t_flags *flags)
 	flags->len = 0;
 	flags->dot = 0;
 	flags->negative = 0;
+	flags->asterisk = 0;
 }
 
 int				ft_printf(const char *input, ...)

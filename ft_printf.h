@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:27:07 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/11 02:37:24 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 01:31:19 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 /*
 **  Struct Part
 */
+
 typedef struct	s_flags
 {
 	char	type;
@@ -37,10 +38,11 @@ typedef struct	s_flags
 	int		len;
 	char	dot;
 	char	negative;
+	char	asterisk;
 }				t_flags;
 
 /*
-** Prinft functions
+** Printf functions
 */
 
 int				ft_printf(const char *input, ...);
@@ -56,10 +58,13 @@ void			print_choi(t_flags *flags, int c);
 void			print_padding(t_flags *flags, int len);
 void			print_s(t_flags *flags, char *s);
 void			print_doido_da_nat(t_flags *flags, char *number, int size);
-void			print_d_i(t_flags *flags, int num);
-void			print_du_luigi(t_flags *flags, long int num);
-void			print_hex(t_flags *flags, long int num);
+void			print_d_i(t_flags *flags, long int num);
+void			print_du_luigi(t_flags *flags, unsigned num);
+void			print_hex(t_flags *flags, unsigned int num);
 void			print_nat_uhex(t_flags *flags, char *number, int size);
+void			print_p(t_flags *flags, unsigned long pointer);
+void			print_doido_ptr(t_flags *flags, char *ptr, int size);
+void			print_conferir_d_i(t_flags *flags, int size);
 
 /*
 **  Utils functions
@@ -71,6 +76,7 @@ int				ft_isdigit(int c);
 void			ft_putstr(t_flags *flags, char *s, size_t size);
 size_t			ft_strlen(const char *s);
 char			*ft_itoa(long int n);
-char			*hextoa(t_flags *flags, long int nb);
+char			*hextoa(t_flags *flags, unsigned long long nb);
+char			*ft_utoa(unsigned int n);
 
 #endif

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/03/09 18:49:16 by csantos-          #+#    #+#              #
-#    Updated: 2021/04/11 01:57:16 by nbarreir         ###   ########.fr        #
+#    Created: 2021/04/15 01:27:28 by nbarreir          #+#    #+#              #
+#    Updated: 2021/04/15 01:27:32 by nbarreir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,11 @@ $(NAME): $(INCLUDES)
 	@gcc $(OBJ)
 	@./a.out
 #	ar rc $(NAME) $(OBJ)
+
+git:
+		git add .
+		git commit -m "newcommit"
+		git push
 
 clean:
 		rm -f $(OBJ) a.out

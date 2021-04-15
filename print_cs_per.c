@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 21:10:05 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/11 01:57:21 by nbarreir         ###   ########.fr       */
+/*   Created: 2021/04/15 01:35:39 by nbarreir          #+#    #+#             */
+/*   Updated: 2021/04/15 01:37:24 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,37 @@
 /*
 ** Prints %
 */
+
 void		print_percent(t_flags *flags)
 {
-	flags->count++; // CHOI COMMANDS US TO ALWAYS COUNT THIS SHIT
+	int size;
+
+	size = 1;
+	flags->count++; // CHOI COMMANDS US TO ALWAYS COUNT THIS SHITif (flags->width <= 0)
+	if (flags->width <= 0)
+		flags->width = size;
+	else if (flags->width > size && flags->minus == 0)
+	{
+		flags->width = flags->width - size;
+		print_padding(flags, flags->width);
+	}
 	ft_putchar(flags, '%');
+	if (flags->width > size && flags->minus == 1)
+	{
+		flags->width = flags->width - size;
+		print_padding(flags, flags->width);
+	}
 }
 
 /*
 ** Prints chars
 */
+
 void		print_choi(t_flags *flags, int c)
 {
 	flags->count++; // CHOI COMMANDS US TO ALWAYS COUNT THIS SHIT
+	if (flags->asterisk == 1)
+		flags->minus = 1;
 	if (flags->width <= 0)
 		flags->width = 1;
 	else if (flags->width > 1 && flags->minus == 0)
@@ -37,15 +56,19 @@ void		print_choi(t_flags *flags, int c)
 	ft_putchar(flags, c);
 	if (flags->width > 1 && flags->minus == 1)
 		print_padding(flags, flags->width - 1);
+	reset_da_cla(flags);
 }
 
 /*
 ** Prints strings
 */
+
 void		print_s(t_flags *flags, char *s)
 {
 	int size;
 
+	if (!s)
+		s = "(null)";
 	size = (int)ft_strlen(s);
 	flags->count++; // CHOI COMMANDS US TO ALWAYS COUNT THIS SHIT
 	if (flags->dot == 1 && flags->precision < size)
@@ -54,7 +77,7 @@ void		print_s(t_flags *flags, char *s)
 		flags->width = size;
 	else if (flags->width > size && flags->minus == 0)
 	{
-		flags->padding = ' ';
+		//flags->padding = ' ';
 		flags->width = flags->width - size;
 		print_padding(flags, flags->width);
 	}
