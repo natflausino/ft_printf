@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 21:11:12 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 02:07:21 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 02:45:36 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,3 +111,4 @@ char		*hextoa(t_flags *flags, unsigned long long nb)
 		count--;
 	}
 	return (str);
+}
