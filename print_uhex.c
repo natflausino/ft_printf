@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 02:04:39 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/16 01:44:31 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/16 02:13:33 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ static void		precision_nat_uhex(t_flags *flags, char *number, int size)
 	{
 		if (flags->width > size && flags->minus == 1)
 		{
-		flags->padding = ' ';
-		if (flags->precision > size)
-			flags->width = flags->width - flags->precision;
-		else
-			flags->width = flags->width - size;
-		print_padding(flags, flags->width);
+			flags->padding = ' ';
+			if (flags->precision > size)
+				flags->width = flags->width - flags->precision;
+			else
+				flags->width = flags->width - size;
+			print_padding(flags, flags->width);
 		}
 		reset_da_cla(flags);
 	}
