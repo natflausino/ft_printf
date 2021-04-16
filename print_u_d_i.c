@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 23:52:18 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 23:07:29 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:20:15 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void			print_doido_da_nat(t_flags *flags, char *number, int size)
 	}
 	if (flags->zero == 0)
 		precision_da_nat(flags, size);
-	ft_putstr(flags, number, size);
+	ft_putstr(flags, number, size - 1);
 	if (flags->width > size && flags->minus == 1)
 	{
 		flags->padding = ' ';
