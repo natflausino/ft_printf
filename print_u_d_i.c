@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 23:52:18 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 22:46:03 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:07:29 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			print_du_luigi(t_flags *flags, unsigned num)
 	int				size;
 	char			*number;
 
-	flags->count++; // CHOI COMMANDS US TO ALWAYS COUNT THIS SHIT
+	flags->count++;
 	if (flags->dot == 1)
 	{
 		flags->zero = 0;

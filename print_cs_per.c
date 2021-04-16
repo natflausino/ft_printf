@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 01:35:39 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 22:38:24 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:06:57 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		print_percent(t_flags *flags)
 
 void		print_choi(t_flags *flags, int c)
 {
-	flags->count++; // CHOI COMMANDS US TO ALWAYS COUNT THIS SHIT
+	flags->count++;
 	if (flags->asterisk == 1)
 		flags->minus = 1;
 	if (flags->width <= 0)

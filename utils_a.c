@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 21:11:12 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 22:50:15 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:08:34 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ char		*ft_utoa_do_matheus(unsigned int n)
 
 char		*hextoa(t_flags *flags, unsigned long long nb)
 {
-	int	count;
-	char			*str;
+	int					count;
+	char				*str;
 	unsigned long long	temp;
 
 	temp = nb;
@@ -104,7 +104,7 @@ char		*hextoa(t_flags *flags, unsigned long long nb)
 	str[count] = '\0';
 	while (temp != 0)
 	{
-		if ((flags->type == 'x' || flags->type == 'p') && (temp  % 16) >= 10)
+		if ((flags->type == 'x' || flags->type == 'p') && (temp % 16) >= 10)
 			str[count - 1] = (temp % 16) + 87;
 		else if (flags->type == 'X' && (temp % 16) >= 10)
 			str[count - 1] = (temp % 16) + 55;

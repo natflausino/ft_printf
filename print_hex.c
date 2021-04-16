@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 02:04:39 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 22:43:30 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:02:31 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,3 @@ void			print_hex(t_flags *flags, unsigned int num)
 	print_nat_uhex(flags, number, size);
 	free(number);
 }
-
