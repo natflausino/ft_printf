@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 01:35:39 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 23:06:57 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:57:29 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		print_choi(t_flags *flags, int c)
 ** Prints strings
 */
 
-void		print_s(t_flags *flags, char *s)
+void		print_spaco(t_flags *flags, char *s)
 {
 	int size;
 

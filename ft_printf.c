@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:45 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 23:16:59 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/16 00:00:04 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int				ft_printf(const char *input, ...)
 		if (str[flags.count] == '%')
 		{
 			flags.count++;
-			get_flags(str, &flags, args);
+			get_marce_flags(str, &flags, args);
 		}
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 01:32:44 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 22:53:10 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:59:44 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		print_da_dani(t_flags *flags, va_list args)
 	else if (flags->type == 'c')
 		print_choi(flags, (va_arg(args, int)));
 	else if (flags->type == 's')
-		print_s(flags, (va_arg(args, char *)));
+		print_spaco(flags, (va_arg(args, char *)));
 	else if (flags->type == 'd' || flags->type == 'i')
 		print_d_i(flags, (va_arg(args, int)));
 	else if (flags->type == 'u')
@@ -69,7 +69,7 @@ void		get_flags_a(const char *str, t_flags *flags, va_list args)
 	get_specs(str, flags, args);
 }
 
-void		get_flags(const char *str, t_flags *flags, va_list args)
+void		get_marce_flags(const char *str, t_flags *flags, va_list args)
 {
 	while (str[flags->count] == '0' || str[flags->count] == '-')
 	{

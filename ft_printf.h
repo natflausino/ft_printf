@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:27:07 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 23:48:00 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/16 00:00:15 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct	s_flags
 
 int				ft_printf(const char *input, ...);
 void			reset_tuca_type(t_flags *flags);
-void			get_flags(const char *str, t_flags *flags, va_list args);
+void			get_marce_flags(const char *str, t_flags *flags, va_list args);
 void			get_flags_a(const char *str, t_flags *flags, va_list args);
 void			paula_is_star(t_flags *flags, va_list args, int *star);
 int				is_number(const char *str, t_flags *flags);
@@ -56,7 +56,7 @@ void			reset_da_cla(t_flags *flags);
 void			print_percent(t_flags *flags);
 void			print_choi(t_flags *flags, int c);
 void			print_padding(t_flags *flags, int len);
-void			print_s(t_flags *flags, char *s);
+void			print_spaco(t_flags *flags, char *s);
 void			print_doido_da_nat(t_flags *flags, char *number, int size);
 void			print_d_i(t_flags *flags, long int num);
 void			print_du_luigi(t_flags *flags, unsigned num);
