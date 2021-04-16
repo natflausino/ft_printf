@@ -6,25 +6,11 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 23:52:18 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 23:40:27 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/16 01:44:42 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void			print_conferir_d_i(t_flags *flags, int size)
-{
-	if (flags->width > size && flags->minus == 1)
-	{
-		flags->padding = ' ';
-		if (flags->precision > size)
-			flags->width = flags->width - flags->precision;
-		else
-			flags->width = flags->width - size;
-		print_padding(flags, flags->width);
-	}
-	reset_da_cla(flags);
-}
 
 /*
 ** Prints decimal and int

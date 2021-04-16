@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:27:07 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/16 00:00:15 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/16 01:44:48 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void			print_hex(t_flags *flags, unsigned int num);
 void			print_nat_uhex(t_flags *flags, char *number, int size);
 void			print_p(t_flags *flags, unsigned long pointer);
 void			print_doido_ptr(t_flags *flags, char *ptr, int size);
-void			print_conferir_d_i(t_flags *flags, int size);
 
 /*
 **  Utils functions
