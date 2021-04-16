@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:45 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 22:27:41 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:16:59 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int				ft_printf(const char *input, ...)
 	t_flags		flags;
 	va_list		args;
 
-	va_start(args, *input);
+	va_start(args, input);
 	reset_tuca_type(&flags);
 	if (!(str = ft_strdup(input)))
 		return (0);
