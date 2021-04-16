@@ -6,7 +6,7 @@
 #    By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/15 01:27:28 by nbarreir          #+#    #+#              #
-#    Updated: 2021/04/15 01:27:32 by nbarreir         ###   ########.fr        #
+#    Updated: 2021/04/15 22:55:55 by nbarreir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,9 @@ all: $(NAME)
 
 $(NAME): $(INCLUDES)
 	@gcc $(CFLAGS) -c $(SRC)
-	@gcc $(OBJ)
-	@./a.out
-#	ar rc $(NAME) $(OBJ)
+#	@gcc $(OBJ)
+#	@./a.out
+	ar rc $(NAME) $(OBJ)
 
 git:
 		git add .

@@ -6,34 +6,15 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 02:04:39 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 02:04:41 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 22:43:30 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** Prints hexadecimals x and X
+** Deals with precision for u and hexadecimals
 */
-
-void			print_hex(t_flags *flags, unsigned int num)
-{
-	int				size;
-	char			*number;
-
-	flags->count++; // CHOI COMMANDS US TO ALWAYS COUNT THIS SHIT
-	if (flags->dot == 1)
-	{
-		flags->zero = 0;
-		flags->padding = ' ';
-	}
-	number = hextoa(flags, (unsigned long long)num);
-	size = (int)ft_strlen(number);
-	if (num == 0 && flags->dot == 1)
-		size = 0;
-	print_nat_uhex(flags, number, size);
-	free(number);
-}
 
 static void		precision_nat_uhex(t_flags *flags, char *number, int size)
 {
@@ -71,3 +52,27 @@ void			print_nat_uhex(t_flags *flags, char *number, int size)
 	}
 	reset_da_cla(flags);
 }
+
+/*
+** Prints hexadecimals x and X
+*/
+
+void			print_hex(t_flags *flags, unsigned int num)
+{
+	int				size;
+	char			*number;
+
+	flags->count++;
+	if (flags->dot == 1)
+	{
+		flags->zero = 0;
+		flags->padding = ' ';
+	}
+	number = hextoa(flags, (unsigned long long)num);
+	size = (int)ft_strlen(number);
+	if (num == 0 && flags->dot == 1)
+		size = 0;
+	print_nat_uhex(flags, number, size);
+	free(number);
+}
+

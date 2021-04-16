@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:27:07 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 01:31:19 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 22:54:44 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct	s_flags
 */
 
 int				ft_printf(const char *input, ...);
-void			reset_type(t_flags *flags);
+void			reset_tuca_type(t_flags *flags);
 void			get_flags(const char *str, t_flags *flags, va_list args);
 void			get_flags_a(const char *str, t_flags *flags, va_list args);
 void			paula_is_star(t_flags *flags, va_list args, int *star);
@@ -77,6 +77,6 @@ void			ft_putstr(t_flags *flags, char *s, size_t size);
 size_t			ft_strlen(const char *s);
 char			*ft_itoa(long int n);
 char			*hextoa(t_flags *flags, unsigned long long nb);
-char			*ft_utoa(unsigned int n);
+char			*ft_utoa_do_matheus(unsigned int n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 01:35:39 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 01:37:24 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 22:38:24 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		print_percent(t_flags *flags)
 	int size;
 
 	size = 1;
-	flags->count++; // CHOI COMMANDS US TO ALWAYS COUNT THIS SHITif (flags->width <= 0)
+	flags->count++;
 	if (flags->width <= 0)
 		flags->width = size;
 	else if (flags->width > size && flags->minus == 0)
@@ -35,6 +35,7 @@ void		print_percent(t_flags *flags)
 		flags->width = flags->width - size;
 		print_padding(flags, flags->width);
 	}
+	reset_da_cla(flags);
 }
 
 /*
@@ -70,14 +71,15 @@ void		print_s(t_flags *flags, char *s)
 	if (!s)
 		s = "(null)";
 	size = (int)ft_strlen(s);
-	flags->count++; // CHOI COMMANDS US TO ALWAYS COUNT THIS SHIT
+	flags->count++;
 	if (flags->dot == 1 && flags->precision < size)
 		size = flags->precision;
 	if (flags->width <= 0)
 		flags->width = size;
 	else if (flags->width > size && flags->minus == 0)
 	{
-		//flags->padding = ' ';
+		if (flags->width > flags->precision && flags->zero == 0)
+			flags->padding = ' ';
 		flags->width = flags->width - size;
 		print_padding(flags, flags->width);
 	}

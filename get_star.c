@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 01:33:59 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 02:09:43 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 22:52:16 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	paula_is_star(t_flags *flags, va_list args, int *star)
 		{
 			flags->asterisk = 1;
 			flags->minus = 1;
+			flags->padding = ' ';
 			*star = *star * (-1);
 		}
 		else

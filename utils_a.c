@@ -6,11 +6,15 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 21:11:12 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 02:45:36 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 22:50:15 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** Converts input into int
+*/
 
 static void	convert_putnbr(long int c, char *str, long int i)
 {
@@ -54,7 +58,7 @@ char		*ft_itoa(long int n)
 ** Converts input into unsigned int
 */
 
-char		*ft_utoa(unsigned int n)
+char		*ft_utoa_do_matheus(unsigned int n)
 {
 	unsigned int	count;
 	unsigned int	num;
@@ -100,7 +104,6 @@ char		*hextoa(t_flags *flags, unsigned long long nb)
 	str[count] = '\0';
 	while (temp != 0)
 	{
-		//temp = temp % 16;
 		if ((flags->type == 'x' || flags->type == 'p') && (temp  % 16) >= 10)
 			str[count - 1] = (temp % 16) + 87;
 		else if (flags->type == 'X' && (temp % 16) >= 10)

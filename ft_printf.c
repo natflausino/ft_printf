@@ -6,13 +6,13 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:45 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 01:29:25 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 22:27:41 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			reset_type(t_flags *flags)
+void			reset_tuca_type(t_flags *flags)
 {
 	flags->type = 0;
 	flags->zero = 0;
@@ -35,7 +35,7 @@ int				ft_printf(const char *input, ...)
 	va_list		args;
 
 	va_start(args, *input);
-	reset_type(&flags);
+	reset_tuca_type(&flags);
 	if (!(str = ft_strdup(input)))
 		return (0);
 	while (str[flags.count])
