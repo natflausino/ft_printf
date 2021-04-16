@@ -6,11 +6,34 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 02:04:39 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 23:02:31 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:32:01 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** Prints unsigned int
+*/
+
+void			print_du_luigi(t_flags *flags, unsigned num)
+{
+	int				size;
+	char			*number;
+
+	flags->count++;
+	if (flags->dot == 1)
+	{
+		flags->zero = 0;
+		flags->padding = ' ';
+	}
+	number = ft_utoa_do_matheus(num);
+	size = (int)ft_strlen(number);
+	if (num == 0 && flags->dot == 1)
+		size = 0;
+	print_nat_uhex(flags, number, size);
+	free(number);
+}
 
 /*
 ** Deals with precision for u and hexadecimals
