@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 21:11:12 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 23:08:34 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:49:01 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,21 @@ char		*ft_utoa_do_matheus(unsigned int n)
 /*
 ** Converts input into hexadecimal x and X
 */
+static char	*hextoa_a(char *str, t_flags *flags, unsigned long long temp , int count)
+{
+	while (temp != 0)
+	{
+		if ((flags->type == 'x' || flags->type == 'p') && (temp % 16) >= 10)
+			str[count - 1] = (temp % 16) + 87;
+		else if (flags->type == 'X' && (temp % 16) >= 10)
+			str[count - 1] = (temp % 16) + 55;
+		else
+			str[count - 1] = (temp % 16) + 48;
+		temp = temp / 16;
+		count--;
+	}
+	return (str);
+}
 
 char		*hextoa(t_flags *flags, unsigned long long nb)
 {
@@ -102,16 +117,6 @@ char		*hextoa(t_flags *flags, unsigned long long nb)
 	if (!str)
 		return (NULL);
 	str[count] = '\0';
-	while (temp != 0)
-	{
-		if ((flags->type == 'x' || flags->type == 'p') && (temp % 16) >= 10)
-			str[count - 1] = (temp % 16) + 87;
-		else if (flags->type == 'X' && (temp % 16) >= 10)
-			str[count - 1] = (temp % 16) + 55;
-		else
-			str[count - 1] = (temp % 16) + 48;
-		temp = temp / 16;
-		count--;
-	}
+	str = hextoa_a(str, flags, temp, count);
 	return (str);
 }
