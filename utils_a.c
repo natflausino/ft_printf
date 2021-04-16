@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 21:11:12 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 23:51:43 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/15 23:53:20 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ char		*ft_utoa_do_matheus(unsigned int n)
 /*
 ** Converts input into hexadecimal x and X
 */
+
 static char	*hextoa_a(char *str, t_flags *flags, unsigned long long temp,
 					int count)
 {
