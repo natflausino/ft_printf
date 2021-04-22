@@ -6,13 +6,13 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 01:33:59 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 22:52:16 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/21 21:33:59 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		is_number(const char *str, t_flags *flags)
+int	is_number(const char *str, t_flags *flags)
 {
 	flags->number = 0;
 	if (!(ft_isdigit((int)str[flags->count])))

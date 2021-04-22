@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 00:27:07 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/16 01:44:48 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/21 21:32:42 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 **  Struct Part
 */
 
-typedef struct	s_flags
+typedef struct s_flags
 {
 	char	type;
 	char	zero;
@@ -59,7 +59,7 @@ void			print_padding(t_flags *flags, int len);
 void			print_spaco(t_flags *flags, char *s);
 void			print_doido_da_nat(t_flags *flags, char *number, int size);
 void			print_d_i(t_flags *flags, long int num);
-void			print_du_luigi(t_flags *flags, unsigned num);
+void			print_du_luigi(t_flags *flags, unsigned int num);
 void			print_hex(t_flags *flags, unsigned int num);
 void			print_nat_uhex(t_flags *flags, char *number, int size);
 void			print_p(t_flags *flags, unsigned long pointer);

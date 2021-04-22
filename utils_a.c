@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 21:11:12 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 23:53:20 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/21 21:38:53 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static void	convert_putnbr(long int c, char *str, long int i)
 {
-	long unsigned m;
+	long unsigned	m;
 
 	m = c;
 	if (c < 0)
@@ -31,7 +31,7 @@ static void	convert_putnbr(long int c, char *str, long int i)
 	str[i] = (m % 10) + '0';
 }
 
-char		*ft_itoa(long int n)
+char	*ft_itoa(long int n)
 {
 	char		*str;
 	long int	j;
@@ -58,7 +58,7 @@ char		*ft_itoa(long int n)
 ** Converts input into unsigned int
 */
 
-char		*ft_utoa_do_matheus(unsigned int n)
+char	*ft_utoa_do_matheus(unsigned int n)
 {
 	unsigned int	count;
 	unsigned int	num;
@@ -68,7 +68,8 @@ char		*ft_utoa_do_matheus(unsigned int n)
 	num = n;
 	while (n >= 10 && count++)
 		n /= 10;
-	if (!(temp = malloc((count + 1) * sizeof(char))))
+	temp = malloc((count + 1) * sizeof(char));
+	if (!temp)
 		return (NULL);
 	*(temp + count) = '\0';
 	while (count--)
@@ -100,7 +101,7 @@ static char	*hextoa_a(char *str, t_flags *flags, unsigned long long temp,
 	return (str);
 }
 
-char		*hextoa(t_flags *flags, unsigned long long nb)
+char	*hextoa(t_flags *flags, unsigned long long nb)
 {
 	int					count;
 	char				*str;

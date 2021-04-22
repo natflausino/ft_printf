@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 02:04:39 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/16 02:13:33 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/21 21:36:23 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 ** Prints unsigned int
 */
 
-void			print_du_luigi(t_flags *flags, unsigned num)
+void	print_du_luigi(t_flags *flags, unsigned int num)
 {
-	int				size;
-	char			*number;
+	int		size;
+	char	*number;
 
 	flags->count++;
 	if (flags->dot == 1)
@@ -39,7 +39,7 @@ void			print_du_luigi(t_flags *flags, unsigned num)
 ** Deals with precision for u and hexadecimals
 */
 
-static void		precision_nat_uhex(t_flags *flags, char *number, int size)
+static void	precision_nat_uhex(t_flags *flags, char *number, int size)
 {
 	if (flags->dot == 1 && flags->precision > size)
 	{
@@ -61,7 +61,7 @@ static void		precision_nat_uhex(t_flags *flags, char *number, int size)
 	}
 }
 
-void			print_nat_uhex(t_flags *flags, char *number, int size)
+void	print_nat_uhex(t_flags *flags, char *number, int size)
 {
 	if (flags->width <= 0)
 		flags->width = size;
@@ -91,7 +91,7 @@ void			print_nat_uhex(t_flags *flags, char *number, int size)
 ** Prints hexadecimals x and X
 */
 
-void			print_hex(t_flags *flags, unsigned int num)
+void	print_hex(t_flags *flags, unsigned int num)
 {
 	int				size;
 	char			*number;

@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 01:35:39 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 23:57:29 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/21 21:34:25 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 ** Prints %
 */
 
-void		print_percent(t_flags *flags)
+void	print_percent(t_flags *flags)
 {
-	int size;
+	int	size;
 
 	size = 1;
 	flags->count++;
@@ -42,7 +42,7 @@ void		print_percent(t_flags *flags)
 ** Prints chars
 */
 
-void		print_choi(t_flags *flags, int c)
+void	print_choi(t_flags *flags, int c)
 {
 	flags->count++;
 	if (flags->asterisk == 1)
@@ -64,9 +64,9 @@ void		print_choi(t_flags *flags, int c)
 ** Prints strings
 */
 
-void		print_spaco(t_flags *flags, char *s)
+void	print_spaco(t_flags *flags, char *s)
 {
-	int size;
+	int	size;
 
 	if (!s)
 		s = "(null)";

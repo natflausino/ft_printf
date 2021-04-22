@@ -6,21 +6,21 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 21:47:05 by csantos-          #+#    #+#             */
-/*   Updated: 2021/04/15 22:50:44 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/21 21:38:00 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_putchar(t_flags *flags, char c)
+void	ft_putchar(t_flags *flags, char c)
 {
 	write(1, &c, 1);
 	flags->len++;
 }
 
-size_t		ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -28,9 +28,9 @@ size_t		ft_strlen(const char *s)
 	return (i);
 }
 
-void		ft_putstr(t_flags *flags, char *s, size_t size)
+void	ft_putstr(t_flags *flags, char *s, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!s)
@@ -43,14 +43,15 @@ void		ft_putstr(t_flags *flags, char *s, size_t size)
 	return ;
 }
 
-char		*ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	char	*str;
 	int		i;
 
 	str = 0;
 	i = 0;
-	if (!(str = (char *)malloc(ft_strlen(s1) + 1)))
+	str = (char *)malloc(ft_strlen(s1) + 1);
+	if (!str)
 		return (0);
 	while (s1[i] != '\0')
 	{
@@ -61,7 +62,7 @@ char		*ft_strdup(const char *s1)
 	return (str);
 }
 
-int			ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	return (c >= 48 && c <= 57);
 }

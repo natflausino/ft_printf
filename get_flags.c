@@ -6,13 +6,13 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 01:32:44 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 23:59:44 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/21 21:33:49 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		print_da_dani(t_flags *flags, va_list args)
+void	print_da_dani(t_flags *flags, va_list args)
 {
 	if (flags->type == '%')
 		print_percent(flags);
@@ -30,7 +30,7 @@ void		print_da_dani(t_flags *flags, va_list args)
 		print_p(flags, (va_arg(args, unsigned long)));
 }
 
-void		get_specs(const char *str, t_flags *flags, va_list args)
+void	get_specs(const char *str, t_flags *flags, va_list args)
 {
 	if (str[flags->count] == 'c')
 		flags->type = 'c';
@@ -53,7 +53,7 @@ void		get_specs(const char *str, t_flags *flags, va_list args)
 	print_da_dani(flags, args);
 }
 
-void		get_flags_a(const char *str, t_flags *flags, va_list args)
+void	get_flags_a(const char *str, t_flags *flags, va_list args)
 {
 	if (str[flags->count] == '.')
 	{
@@ -69,7 +69,7 @@ void		get_flags_a(const char *str, t_flags *flags, va_list args)
 	get_specs(str, flags, args);
 }
 
-void		get_marce_flags(const char *str, t_flags *flags, va_list args)
+void	get_marce_flags(const char *str, t_flags *flags, va_list args)
 {
 	while (str[flags->count] == '0' || str[flags->count] == '-')
 	{

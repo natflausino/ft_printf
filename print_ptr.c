@@ -6,7 +6,7 @@
 /*   By: nbarreir <nbarreir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 02:05:47 by nbarreir          #+#    #+#             */
-/*   Updated: 2021/04/15 23:30:09 by nbarreir         ###   ########.fr       */
+/*   Updated: 2021/04/21 21:34:37 by nbarreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Deals with padding for pointers
 */
 
-static void		print_doido_ptr_a(t_flags *flags, int size)
+static void	print_doido_ptr_a(t_flags *flags, int size)
 {
 	if (flags->width > size && flags->minus == 1)
 	{
@@ -27,7 +27,7 @@ static void		print_doido_ptr_a(t_flags *flags, int size)
 	reset_da_cla(flags);
 }
 
-void			print_doido_ptr(t_flags *flags, char *ptr, int size)
+void	print_doido_ptr(t_flags *flags, char *ptr, int size)
 {
 	if (flags->width <= 0)
 		flags->width = size;
@@ -57,7 +57,7 @@ void			print_doido_ptr(t_flags *flags, char *ptr, int size)
 ** Prints pointers
 */
 
-void			print_p(t_flags *flags, unsigned long pointer)
+void	print_p(t_flags *flags, unsigned long pointer)
 {
 	int				size;
 	char			*ptr;
